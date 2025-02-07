@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://source.unsplash.com/1600x900/?love,hearts') no-repeat center center/cover;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 182, 193, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 3em;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .yes {
+            background-color: red;
+            color: white;
+        }
+        .no {
+            background-color: white;
+            color: red;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        #mensaje {
+            margin-top: 20px;
+            font-size: 2em;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center center/cover;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ser mi San Valentín? 💖</h1>
+        <img src="https://source.unsplash.com/300x200/?couple,love" alt="Pareja enamorada" style="border-radius: 10px;">
+        <div class="buttons">
+            <button class="yes" onclick="respuesta('si')">Sí</button>
+            <button class="no" onclick="respuesta('no')">No</button>
+        </div>
+        <h2 id="mensaje"></h2>
+        <div class="heart" id="heart"></div>
+    </div>
+    <script>
+        function respuesta(opcion) {
+            let mensaje = document.getElementById("mensaje");
+            let heart = document.getElementById("heart");
+            if (opcion === 'si') {
+                mensaje.innerHTML = "¡Te amo! 💕";
+                mensaje.style.fontSize = "2.5em";
+                heart.style.display = "block";
+            } else {
+                mensaje.innerHTML = "¡TE AMO MUCHÍSIMO! ❤️💖";
+                mensaje.style.fontSize = "3.5em";
+                heart.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
