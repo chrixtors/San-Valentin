@@ -7,81 +7,118 @@
     <style>
         body {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: url('https://source.unsplash.com/1600x900/?love,hearts') no-repeat center center/cover;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            text-align: center;
-            color: white;
+            margin: 0;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
         }
         .container {
-            background: rgba(255, 182, 193, 0.8);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            backdrop-filter: blur(10px);
         }
         h1 {
             font-size: 3em;
+            color: #ff63a5;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1.5em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 300;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .buttons {
-            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
         }
         button {
-            font-size: 1.5em;
-            padding: 10px 20px;
-            margin: 10px;
+            font-size: 1.4em;
+            padding: 12px 25px;
             border: none;
-            border-radius: 10px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease, background-color 0.3s;
+            width: 120px;
         }
         .yes {
-            background-color: red;
+            background-color: #ff63a5;
             color: white;
         }
         .no {
             background-color: white;
-            color: red;
+            color: #ff63a5;
+            border: 2px solid #ff63a5;
         }
         button:hover {
             transform: scale(1.1);
+            background-color: #f06292;
         }
         #mensaje {
-            margin-top: 20px;
             font-size: 2em;
+            margin-top: 20px;
+            color: #ff63a5;
+            font-weight: bold;
         }
         .heart {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center center/cover;
             margin-top: 20px;
+            display: none;
+        }
+        .image-container {
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>¿Quieres ser mi San Valentín? 💖</h1>
-        <img src="https://source.unsplash.com/300x200/?couple,love" alt="Pareja enamorada" style="border-radius: 10px;">
+        <div class="image-container">
+            <img src="foto.jpeg" alt="Imagen romántica">
+        </div>
+        <p>Este 14 de febrero me encantaría compartir un momento especial contigo. No importa si estamos cerca o lejos, lo que importa es lo que siento por ti. ¿Te gustaría ser mi San Valentín y hacer que este día sea aún más especial? 💕</p>
         <div class="buttons">
-            <button class="yes" onclick="respuesta('si')">Sí</button>
-            <button class="no" onclick="respuesta('no')">No</button>
+            <button class="yes" onclick="respuesta('si')">¡Sí! 💘</button>
+            <button class="no" onclick="respuesta('no')">¡No! 😢</button>
         </div>
         <h2 id="mensaje"></h2>
         <div class="heart" id="heart"></div>
     </div>
+
     <script>
         function respuesta(opcion) {
             let mensaje = document.getElementById("mensaje");
             let heart = document.getElementById("heart");
             if (opcion === 'si') {
-                mensaje.innerHTML = "¡Te amo! 💕";
+                mensaje.innerHTML = "¡Me haces muy feliz! 💖";
                 mensaje.style.fontSize = "2.5em";
                 heart.style.display = "block";
             } else {
-                mensaje.innerHTML = "¡TE AMO MUCHÍSIMO! ❤️💖";
-                mensaje.style.fontSize = "3.5em";
+                mensaje.innerHTML = "¡Te quiero muchísimo! ❤️";
+                mensaje.style.fontSize = "2.5em";
                 heart.style.display = "block";
             }
         }
